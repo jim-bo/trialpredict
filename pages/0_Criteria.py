@@ -20,6 +20,9 @@ import pandas as pd
 import streamlit as st
 from streamlit.hello.utils import show_code
 
+def get_trial_data():
+    return pd.read_pickle("data/msk_met_2021/clinical_wf.pickle")
+
 
 def data_frame_demo():
     @st.cache_data
@@ -63,15 +66,37 @@ def data_frame_demo():
             % e.reason
         )
 
-
+# prepare the page
 st.set_page_config(page_title="DataFrame Demo", page_icon="📊")
-st.markdown("# DataFrame Demo")
-st.sidebar.header("DataFrame Demo")
+
+# title
+st.markdown("# Clinical trial criteria")
+
+# side back
+st.sidebar.header("Specify criteria for your trial")
+
+# introduction
 st.write(
-    """This demo shows how to use `st.write` to visualize Pandas DataFrames.
-(Data courtesy of the [UN Data Explorer](http://data.un.org/Explorer.aspx).)"""
+    """Please enter criteria you wish to model for clinical trial enrollment forecasting purposes"""
 )
 
-data_frame_demo()
+# get data
+wf = get_trial_data()
 
-show_code(data_frame_demo)
+#1. Cancer type, defined by primary site, histology, and key biomarkers
+#2. Prior treatment
+#3. Intent of current treatment, ie curative-intent vs palliative intent
+
+# build select criteria
+#countries = st.multiselect(
+#    "Cancer", 
+#    list(df.index), 
+#    ["China", "United States of America"]
+#)
+
+
+#st.write(wf)
+
+#data_frame_demo()
+
+#show_code(data_frame_demo)
