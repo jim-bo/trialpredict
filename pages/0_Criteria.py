@@ -21,7 +21,7 @@ import streamlit as st
 from streamlit.hello.utils import show_code
 
 def get_trial_data():
-    return pd.read_pickle("data/msk_met_2021/clinical_wf.pickle")
+    return pd.read_pickle("data/clinical_wf.pickle")
 
 
 def data_frame_demo():
