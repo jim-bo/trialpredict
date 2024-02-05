@@ -40,8 +40,7 @@ def run():
         ### Want to learn more?
         - Something insightful
         - More text that is edgy with [documentation](https://docs.streamlit.io)
-        - Ask a question in our [community
-          forums](https://discuss.streamlit.io)
+        - Ask a question in our to yourself
     """
     )
 
